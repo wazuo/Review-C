@@ -1,8 +1,11 @@
 class BlogsController < ApplicationController
-  def index
-  end
-
+  
   def show
+    
+  end
+  # Top画面にあたる
+  def index
+    @blogs = Blog.all
   end
 
 # ブログの新規投稿
