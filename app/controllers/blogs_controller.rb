@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   
   def show
-    
+    @blog = Blog.find(params[:id])
   end
   # Top画面にあたる
   def index
@@ -16,7 +16,8 @@ class BlogsController < ApplicationController
   def create
     blog =Blog.new(blog_params)
     blog.save
-    redirect_to blogs_path
+    # Top画面遷移から詳細画面遷移に変更済み
+    redirect_to blog_path(blog)
   end
 
   def edit
