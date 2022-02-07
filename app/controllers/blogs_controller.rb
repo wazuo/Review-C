@@ -14,10 +14,13 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog =Blog.new(blog_params)
-    blog.save
-    # Top画面遷移から詳細画面遷移に変更済み
-    redirect_to blog_path(blog)
+    @blog =Blog.new(blog_params)
+    if @blog.save
+      # Top画面遷移から詳細画面遷移に変更済み
+      redirect_to blog_path(@blog)
+    else
+      render :new
+    end
   end
 
   def edit
